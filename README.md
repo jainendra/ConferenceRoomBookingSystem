@@ -4,20 +4,27 @@ A django app to that lets add, book and cancel conference rooms
 
 ## Installation and set-up
 
-#### To install Django
+### To install Django
 ```
 sudo pip install django
 ```
 
-#### To install PostgreSQL
+### To install PostgreSQL
 
-##### For mac
+#### For mac
 Download and install
 http://postgresapp.com/
 
-##### Recommended IDE
+#### Recommended IDE
 Pycharm
 https://www.jetbrains.com/pycharm/
+
+### To setup django
+```
+django-admin startproject ConferenceRoomBookingSystem
+python manage.py migrate
+python manage.py createsuperuser
+```
 
 ## Running the development server
 ```
