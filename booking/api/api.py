@@ -4,7 +4,7 @@ api function acts as an interface between all the request and functions response
 All the functions defined below returns a JSON object
 """
 
-from django.shortcuts import render
+from django.http import JsonResponse
 from django.shortcuts import Http404
 
 
@@ -29,7 +29,11 @@ def signup(request):
     :param request:
     :return: JSON Object
     """
-    pass
+    json = {
+        'status_code': 1,
+        'message': 'Test Successful'
+    }
+    return JsonResponse(json)
 
 
 def login(request):
@@ -38,7 +42,11 @@ def login(request):
     :param request:
     :return: JSON Object
     """
-    pass
+    json = {
+        'status_code': 1,
+        'message': 'Test Successful'
+    }
+    return JsonResponse(json)
 
 
 def logout(request):
@@ -47,4 +55,8 @@ def logout(request):
     :param request:
     :return: JSON Object
     """
-    pass
+    json = {
+        'status_code': 1,
+        'message': 'Test Successful'
+    }
+    return JsonResponse(json)
