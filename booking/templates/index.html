@@ -1,5 +1,83 @@
 {% extends "base.html" %}
 
 {% block content %}
-login_form.as_p
+<div id="login">
+    <form action="/login/" method="post">
+        {% csrf_token %}
+        {% if login_form.errors %}
+        <p align="center">
+            Your username and password didn't match. Please try again.
+        </p>
+        {% endif %}
+        <table align="right">
+            <tbody>
+                <tr>
+                    <th align="right">Email : </th>
+                    <td>
+                        <input id="login_email" maxlength="254" name="email" type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <th align="right">Password : </th>
+                    <td>
+                        <input id="login_password" maxlength="254" name="password" type="password">
+                    </td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td>
+                        <button type="submit">Login</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<div id="signup">
+    <form action="/signup/" method="post">
+        {% csrf_token %}
+        {% if signup_form.errors %}
+        <p align="center">
+            <ul>
+                {% for error in signup_form.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </p>
+        {% endif %}
+        <table align="left">
+            <tbody>
+                {% for field in signup_form %}
+                <tr>
+                    <th> {{ field.label }} : </th>
+                    <td>
+                        {{ field }}
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <th></th>
+                    <td><button type="submit">Sign Up</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+<style>
+    #login {
+        box-sizing: border-box;
+        padding-right: 20px;
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    #signup {
+        box-sizing: border-box;
+        padding-left: 20px;
+        float: right;
+        width: 50%;
+        height: 100%;
+        border-left: 2px solid black;
+    }
+</style>
 {% endblock %}

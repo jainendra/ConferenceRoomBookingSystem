@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
 </head>
 <body>
-$END$
+<nav>
+    <h1 align="center">Conference Room Booking System</h1>
+</nav>
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
+<style>
+    .content{
+        width: 100%;
+        margin: auto;
+    }
+</style>
 </body>
 </html>
