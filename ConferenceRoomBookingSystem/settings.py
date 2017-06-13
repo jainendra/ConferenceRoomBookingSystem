@@ -37,7 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'booking',
+    'booking.apps.BookingConfig',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -108,3 +108,5 @@ STATIC_URL = '/static/'
 
 # Custom Settings
 AUTH_USER_MODEL = 'booking.User'
+
+LOGIN_URL = '/'
