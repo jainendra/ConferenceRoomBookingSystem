@@ -6,21 +6,24 @@ All the functions defined below returns a JSON object
 
 from django.http import JsonResponse
 from django.shortcuts import Http404
+import json
 
 
 def api(request):
     if not request.POST:
         raise Http404
     else:
-        if request.POST['data_code'] == 1:
-            return signup(request)
-        elif request.POST['data_code'] == 2:
-            return login(request)
-        elif request.POST['data_code'] == 3:
-            return logout(request)
-        else:
-            pass
-            # TODO: Code all the cases according to data_code value
+        json_data = json.load(request.body)
+        # if request.POST['data_code'] == 1:
+        #     return signup(request)
+        # elif request.POST['data_code'] == 2:
+        #     return login(request)
+        # elif request.POST['data_code'] == 3:
+        #     return logout(request)
+        # else:
+        #     pass
+        # TODO: Code all the cases according to data_code value
+        return JsonResponse(json_data)
 
 
 def signup(request):
