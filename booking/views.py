@@ -18,8 +18,8 @@ def index(request):
     if user.is_authenticated():
         return redirect('booking:home')
     else:
-        login_form = AuthenticationForm()
-        signup_form = SignupForm()
+        login_form = AuthenticationForm(prefix='login', auto_id='id_login_%s')
+        signup_form = SignupForm(prefix='signup', auto_id='id_signup_%s')
         context = {
             'login_form': login_form,
             'signup_form': signup_form
@@ -37,7 +37,7 @@ def signup(request):
     :return: HttpResponseObject
     """
     if request.method == 'POST':
-        signup_form = SignupForm(data=request.POST)
+        signup_form = SignupForm(data=request.POST, prefix='signup', auto_id='id_signup_%s')
         if signup_form.is_valid():
             if signup_form.save():
                 # TODO: Add login code and confirmation message for signed In user
@@ -62,19 +62,24 @@ def login(request):
     :return: HttpResponseObject
     """
     if request.method == 'POST':
-        login_form = AuthenticationForm(data=request.POST)
+        login_form = AuthenticationForm(data=request.POST, prefix='login', auto_id='id_login_%s')
 
-        email = request.POST.get('email', '')
-        password = request.POST.get('password', '')
+        if login_form.is_valid():
+            # Django treats unique identifiers as username,  so here email is referred as username
+            email = login_form.cleaned_data['username']
+            password = login_form.cleaned_data['password']
 
-        user = auth.authenticate(email=email, password=password)
+            user = auth.authenticate(email=email, password=password)
 
-        if user is not None:
-            auth.login(request, user)
-            return redirect('booking:home')
+            if user is not None:
+                auth.login(request, user)
+                return redirect('booking:home')
+
+        signup_form = SignupForm(prefix='signup', auto_id='id_signup_%s')
 
         context = {
-            'login_form': login_form
+            'login_form': login_form,
+            'signup_form': signup_form
         }
 
         return render(request, 'index.html', context)
