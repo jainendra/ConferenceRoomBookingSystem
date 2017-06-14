@@ -1,0 +1,13 @@
+#login_signup_box {
+    display: table;
+    margin: 0 auto;
+    min-width: 400px;
+}
+
+#login_signup_box p.heading {
+    font-size:20px;
+}
+
+#login {
+    padding: 5px;
+}
