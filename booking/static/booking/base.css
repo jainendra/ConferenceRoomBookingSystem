@@ -1,0 +1,26 @@
+html {
+    font-family: Helvetica;
+}
+
+body {
+    margin: 8px;
+}
+
+#header {
+    border-bottom: 2px solid black;
+}
+
+#footer {
+    position: absolute;
+    right:0;
+    left:0;
+    bottom:0;
+    border-top: 2px solid black;
+    margin:8px;
+    text-align: center;
+}
+
+#content {
+    width: 80%;
+    margin: 0  auto;
+}

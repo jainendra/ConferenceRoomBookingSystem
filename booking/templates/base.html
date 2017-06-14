@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,20 +8,20 @@
         {% block title %}
         {% endblock %}
     </title>
+    <link rel="stylesheet" href="{% static "booking/base.css" %}">
 </head>
 <body>
-<nav>
-    <h1 align="center">Conference Room Booking System</h1>
-</nav>
-<div class="content">
+<div id="header">
+    <h1 align="left">Conference Room Booking System</h1>
+</div>
+<div id="content">
     {% block content %}
     {% endblock %}
 </div>
-<style>
-    .content{
-        width: 100%;
-        margin: auto;
-    }
-</style>
+<div id="footer">
+    <h5>
+        Crafted by Jainendra Mandavi
+    </h5>
+</div>
 </body>
 </html>
