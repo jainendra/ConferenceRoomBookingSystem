@@ -5,10 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        {% block title %}
+        CRBS - {% block title %}
         {% endblock %}
     </title>
     <link rel="stylesheet" href="{% static "booking/base.css" %}">
+    {% block css %}
+    {% endblock %}
 </head>
 <body>
 <div id="header">
