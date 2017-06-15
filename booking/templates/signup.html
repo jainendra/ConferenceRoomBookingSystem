@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static "booking/signup.css" %}">
+{% endblock %}
+
+{% block title %}
+SignUp
+{% endblock %}
+
+{% block content %}
+<div id="signup">
+    <p class="heading">SignUp <span style="font-size:14px">or Click here to <a href="/login">Login</a></span></p>
+    <form action="/signup/" method="post">
+        {% csrf_token %}
+        {% for field in signup_form %}
+            {{ field }}
+            {% if field.errors %}
+                <span style="font-size:14px">{{ field.errors }}</span>
+            {% endif %}
+        {% endfor %}
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <p align="right">
+        <button class="btn" type="submit">Sign Up</button>
+        </p>
+    </form>
+</div>
+{% endblock %}

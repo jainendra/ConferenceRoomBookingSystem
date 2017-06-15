@@ -1,10 +1,10 @@
-#login_signup_box {
+#login_container {
     display: table;
     margin: 0 auto;
     min-width: 400px;
 }
 
-#login_signup_box p.heading {
+#login_container p.heading {
     font-size:20px;
 }
 

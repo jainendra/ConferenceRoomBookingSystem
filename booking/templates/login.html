@@ -3,15 +3,15 @@
 {% load static %}
 
 {% block css %}
-<link rel="stylesheet" href="{% static "booking/index.css" %}">
+<link rel="stylesheet" href="{% static "booking/login.css" %}">
 {% endblock %}
 
 {% block title %}
-Login/SignUp
+Login
 {% endblock %}
 
 {% block content %}
-<div id="login_signup_box">
+<div id="login_container">
     <div id="login">
         <p class="heading">Login <span style="font-size:14px">or Click here to <a href="/signup">SignUp</a></span></p>
         <form action="/login/" method="post">

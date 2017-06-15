@@ -1,0 +1,10 @@
+#signup {
+    margin: 0 auto;
+    min-width: 400px;
+    max-width: 600px;
+    padding: 5px;
+}
+
+#signup p.heading {
+    font-size:18px;
+}
