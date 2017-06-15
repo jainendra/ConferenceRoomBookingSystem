@@ -13,7 +13,7 @@ Login/SignUp
 {% block content %}
 <div id="login_signup_box">
     <div id="login">
-        <p class="heading">Login</p>
+        <p class="heading">Login <span style="font-size:14px">or Click here to <a href="/signup">SignUp</a></span></p>
         <form action="/login/" method="post">
             {% csrf_token %}
             <input id="id_login_login-username" placeholder="Email" maxlength="254" name="login-username" type="text">
@@ -26,24 +26,6 @@ Login/SignUp
             </p>
             {% endif %}
             <p align="right"><button class="btn" type="submit">Login</button></p>
-        </form>
-    </div>
-    <div id="signup">
-        <p class="heading">or SignUp</p>
-        <form action="/signup/" method="post">
-            {% csrf_token %}
-            {% if signup_form.errors %}
-            {% endif %}
-            {% for field in signup_form %}
-                {{ field }}
-                {% if field.errors %}
-                    {{ field.errors }}
-                {% endif %}
-                <br>
-            {% endfor %}
-            <p align="right">
-            <button class="btn" type="submit">Sign Up</button>
-            </p>
         </form>
     </div>
 </div>
