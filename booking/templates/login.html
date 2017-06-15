@@ -13,7 +13,7 @@ Login
 {% block content %}
 <div id="login_container">
     <div id="login">
-        <p class="heading">Login <span style="font-size:14px">or Click here to <a href="/signup">SignUp</a></span></p>
+        <p class="heading">Login <span style="font-size:14px">or <a href="/signup">Click here to SignUp</a></span></p>
         <form action="/login/" method="post">
             {% csrf_token %}
             <input id="id_login_login-username" placeholder="Email" maxlength="254" name="login-username" type="text">

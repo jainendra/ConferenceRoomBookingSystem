@@ -12,7 +12,7 @@ SignUp
 
 {% block content %}
 <div id="signup">
-    <p class="heading">SignUp <span style="font-size:14px">or Click here to <a href="/login">Login</a></span></p>
+    <p class="heading">SignUp <span style="font-size:14px">or <a href="/login"> Click here to Login</a></span></p>
     <form action="/signup/" method="post">
         {% csrf_token %}
         {% for field in signup_form %}
